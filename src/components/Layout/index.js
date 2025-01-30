@@ -54,7 +54,6 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   color: 'inherit',
   '& .MuiInputBase-input': {
     padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
     paddingLeft: `calc(1em + ${theme.spacing(4)})`,
     transition: theme.transitions.create('width'),
     width: '100%',
@@ -64,7 +63,6 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-// const drawerWidth = 240;
 const drawerWidth = 296;
 
 const Layout = (props) => {
@@ -80,31 +78,11 @@ const Layout = (props) => {
     setMobileOpen(!mobileOpen);
   };
 
-//   const [anchorEl, setAnchorEl] = React.useState(null);
-//   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
-
-//   const isMenuOpen = Boolean(anchorEl);
-//   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
-
-//   const handleProfileMenuOpen = (event) => {
-//     setAnchorEl(event.currentTarget);
-//   };
-
-//   const handleMobileMenuClose = () => {
-//     setMobileMoreAnchorEl(null);
-//   };
-
-//   const handleMobileMenuOpen = (event) => {
-//     setMobileMoreAnchorEl(event.currentTarget);
-//   };
-
-
 
   const drawer = (
     <Box style={{minHeight:"100vh",display:'flex',flexDirection:"column",justifyContent:"space-between"}}>
       <Box>
         <Box sx={{width:"100%",minHeight:"90px",display:"flex",alignItems:"center"}}>
-          {/* <Link to="/" className='logo'> */}
           <LogoWrapper component={Link} to="/" className='logo'>
               LODGN
           </LogoWrapper>
@@ -112,12 +90,7 @@ const Layout = (props) => {
         <Box component="ul" sx={{mt:"2rem"}}>
           {
             NavListData && Array.isArray(NavListData) && NavListData.map((item, index) => ( 
-                // <Box component="li" className='sideBarListItem' key={index}>
                 <SideBarListItem component="li" key={index}>
-                  {/* <NavLink to={item?.link} className={({isActive})=> (`sideBarListItemNavLink ${isActive? "navLinkActive":"navLinkInActive"}`) }>
-                          {item?.text}
-                  </NavLink> */}
-                  {/* <Box component={NavLink} to={item?.link}> */}
                   <SidebarNavLink component={NavLink} to={item?.link}>
                           {item?.text}
                   </SidebarNavLink>
@@ -146,11 +119,8 @@ const Layout = (props) => {
           sx={{
             backgroundColor: "white",
             color: "black",
-            // width: { sm: `calc(100% - ${drawerWidth}px)` },
             width: { md: `calc(100% - ${drawerWidth}px)` },
-            // ml: { sm: `${drawerWidth}px` },
             ml: { md: `${drawerWidth}px` },
-            // display: { xs: 'block', sm: 'none' }
             display: { xs: 'block', md: 'none' }
           }}
         >
@@ -160,7 +130,6 @@ const Layout = (props) => {
                 aria-label="open drawer"
                 edge="start"
                 onClick={handleDrawerToggle}
-                // sx={{ mr: 2, display: { sm: 'none' } }}
                 sx={{ mr: 2, display: { md: 'none' } }}
               >
                 <MenuIcon />
@@ -174,7 +143,6 @@ const Layout = (props) => {
         </AppBar>
         <Box
           component="nav"
-          // sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 }}}
           sx={{ width: { md: drawerWidth }, flexShrink: { md: 0 }}}
           aria-label="mailbox folders"
         >
@@ -188,7 +156,6 @@ const Layout = (props) => {
             }}
             sx={{
               boxShadow:"2px 0px 10px rgba(0, 0, 0, 0.25)",
-              // display: { xs: 'block', sm: 'none' },
               display: { xs: 'block', md: 'none' },
               '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
             }}
@@ -198,7 +165,6 @@ const Layout = (props) => {
           <Drawer
             variant="permanent"
             sx={{
-              // display: { xs: 'none', sm: 'block' },
               display: { xs: 'none', md: 'block' },
               '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
             }}
@@ -209,8 +175,6 @@ const Layout = (props) => {
         </Box>
         <Box
           component="main"
-          // sx={{ flexGrow: 1, p: 1, width: { sm: `calc(100% - ${drawerWidth}px)`},marginTop:{ xs: '4rem', sm: '10px' }}}
-          // sx={{ flexGrow: 1, width: { sm: `calc(100% - ${drawerWidth}px)`},marginTop:{ xs: '3.6rem', sm: '0px' }}}
           sx={{ flexGrow: 1, width: { md: `calc(100% - ${drawerWidth}px)`},marginTop:{ xs: '3.6rem', md: '0px' }}}
         >
           {props.children}

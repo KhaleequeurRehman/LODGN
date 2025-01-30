@@ -155,23 +155,6 @@ const LODGN = () => {
 export default LODGN
 
 
-{/* <Grid item xs={12} md={6} lg={3.5} py="10px" sx={{border:{xs:"1px solid #959595",sm:"none"},borderRight:{xs:"none",sm:"1px solid #959595"},borderRadius:{xs:"none",sm:'24px 0px 0px 24px'},background:"#FDF307",p:"15px 10px"}}>
-<Box>
-  <Para3>RECEIVED</Para3>
-</Box>
-</Grid> */}
-
-{/* <Box>
-                  <Box>
-                    <Heading2>10<span style={{}}>      -     </span>17</Heading2>
-                    <DFlexContainer>
-                      <Para3>October</Para3>
-                      <Para3>December</Para3>
-                    </DFlexContainer>
-                  </Box>
-              </Box> */}
-
-
 
 
 
